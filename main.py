@@ -32,11 +32,12 @@ level = [
     '  ████████████████████  ',
     '  ████████████████████  ',
     '  ███████████@████████  ',
+    '  ███████████ ████████  ',
+    '  ██████████  ████████  ',
     '  ████████████████████  ',
-    '  ████████████████████  ',
-    '  ████████████████████  ',
-    '  ████████████████████  ',
-    '  ████████████████████  ',
+
+    '  ██████████████  ████  ',
+    '  █████████   ████████  ',
     '  ████████████████████  ',
     '  ████████████████████  ',
     '                        ',
@@ -68,24 +69,22 @@ def check(player, level):
     x1, y1, x2, y2 = player.render()
     t1 = list(level[x1])[y1]
     t2 = list(level[x2])[y2]
-    print(t1)
-    print(t2)
 
     if t1 == ' ' or t2 == ' ':
-        game_over()
+        game_over(player, level)
 
     if t1 == t2 and t1 == '@':
-        win()
+        win(player, level)
 
-def game_over():
+def game_over(player, level):
+    render_level(level, player)
     print('GAME OVER!')
     exit()
 
-def win():
+def win(player, level):
+    render_level(level, player)
     print('WIN')
     exit()
-
-
 
 def on_key_event(player, level, e):
     if e.event_type == keyboard.KEY_DOWN:
@@ -107,5 +106,4 @@ if __name__ == '__main__':
 
     keyboard.hook(lambda e: on_key_event(player, level, e))
     keyboard.wait('esc')
-    #bla bla bla
 
