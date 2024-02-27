@@ -64,7 +64,6 @@ def render_level(level, player):
             print(i, end=' ')
         print()
 
-
 def check(player, level):
     x1, y1, x2, y2 = player.render()
     t1 = list(level[x1])[y1]
@@ -77,7 +76,6 @@ def check(player, level):
 
     if t1 == t2 and t1 == '@':
         win()
-
 
 def game_over():
     print('GAME OVER!')
@@ -109,4 +107,5 @@ if __name__ == '__main__':
 
     keyboard.hook(lambda e: on_key_event(player, level, e))
     keyboard.wait('esc')
+    #bla bla bla
 
